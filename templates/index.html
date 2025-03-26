@@ -1,38 +1,42 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Список книг</title>
-    <style>
-        /* Немного CSS для оформления */
-        body {
-            font-family: sans-serif;
-            margin: 20px;
-        }
+{% extends "base.html" %}
 
-        .image-container {
-            text-align: center; /* Центрируем изображение */
-        }
-
-        .image-container img {
-            max-width: 50%; /* Ограничиваем ширину изображения */
-            height: auto;      /* Сохраняем пропорции */
-            border: 1px solid #ccc; /* Добавляем рамку для красоты */
-            padding: 5px;
-            margin-bottom: 10px; /* Добавляем отступ снизу */
-        }
-    </style>
-</head>
-<body>
-
-    <h1>Список книг</h1>
-
-    <div class="image-container">
-        <img src="https://images.app.goo.gl/aQq52oksfMfPGrBC8" alt="Книги">
+{% block content %}
+<h1>Выберите интересующую Вас книгу</h1>
+<table class="lg-2 md-2">
+    <tbody>
+        <tr class=""> {% for item in news %}
+            <td>
+                <img src="https://www.litres.ru/pub/c/cover/43498781.jpg" width="380" height="550" >
+                <h2>{{item.title}}</h2>
+                <div>
+                    {{item.content}}
+                </div>
+                <div>
+                    Автор - {{item.user.name}}
+                </div>
+                <div> Дата написания - {{item.created_date}}</div>
+                <div>
+                    <a class="btn btn-secondary" style="color: aquamarine;"> Открыть страницу </a>
+                </div>
+            </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+<!-- {% for item in news %} -->
+<!-- <div class="row-md6 border rounded" style="padding: 15px; ">
+    <h2>{{item.title}}</h2>
+    <div>
+        {{item.content}}
     </div>
+    <div>
+        Автор - {{item.user.name}}, Дата написания - {{item.created_date}}
+    </div>
+</div> -->
 
-    <p>Тут должны быть книги. По аналогии с новостями.</p>
+<!-- {% if current_user.is_authenticated and current_user == item.user %} -->
 
-</body>
-</html>
+<!-- {% endif %} -->
+<!-- </div> -->
+<!-- {% endfor %} -->
+{% endblock %}
