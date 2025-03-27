@@ -1,27 +1,30 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <h1>Выберите интересующую Вас книгу</h1>
-<table class="lg-2 md-2">
-    <tbody>
-        <tr class=""> {% for item in news %}
-            <td>
-                <img src="https://www.litres.ru/pub/c/cover/43498781.jpg" width="380" height="550" >
-                <h2>{{item.title}}</h2>
-                <div>
-                    {{item.content}}
-                </div>
-                <div>
-                    Автор - {{item.user.name}}
-                </div>
-                <div> Дата написания - {{item.created_date}}</div>
-                <div>
-                    <a class="btn btn-secondary" style="color: aquamarine;"> Открыть страницу </a>
-                </div>
-            </td>
-            {% endfor %}
-        </tr>
-    </tbody>
+<table>
+  <tbody>
+    <tr>
+       </td class='text-center'>
+        {% for item in news %}
+
+        <img
+          src="https://www.litres.ru/pub/c/cover/43498781.jpg"
+          width="380"
+          height="550"
+        />
+        <h2>{{item.title}}</h2>
+        <div>{{item.content}}</div>
+        <div>Автор - {{item.user.name}}</div>
+        <div>Дата написания - {{item.created_date}}</div>
+        <div>
+          <a class="btn btn-secondary" style="color: aquamarine">
+            Открыть страницу
+          </a>
+        </div>
+
+        {%endfor%}
+      </td>
+    </tr>
+  </tbody>
 </table>
 <!-- {% for item in news %} -->
 <!-- <div class="row-md6 border rounded" style="padding: 15px; ">

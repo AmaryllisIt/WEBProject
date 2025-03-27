@@ -161,8 +161,3 @@ def login():
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
 
-
-if __name__ == '__main__':
-    db_session.global_init("db/blogs.db")
-    app.register_blueprint(news_api.blueprint)
-    app.run(port=5000, host='127.0.0.1')
