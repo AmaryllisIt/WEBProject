@@ -163,6 +163,15 @@ def login():
     return render_template('login.html', title='Авторизация', form=form)
 
 
+@app.route('/book/<int:id>')
+def book_detail(id):
+    db_sess = db_session.create_session()
+    book = db_sess.query(News).filter(News.id == id).first()
+    if not book:
+        abort(404)
+    return render_template("book_detail.html", book=book)
+
+
 if __name__ == '__main__':
     db_session.global_init("db/blogs.db")
     app.register_blueprint(news_api.blueprint)

@@ -30,7 +30,7 @@
       {% for item in news %}
       <td class='text-center book-item'>
         <img
-          src="{{ url_for('static', filename=item.face) }}"
+          src="{{ url_for('static', filename=item.image_path) }}"
           width="380"
           height="550"
           alt="{{ item.title }}"
@@ -40,7 +40,7 @@
         <div>Автор - {{ item.user.name }}</div>
         <div>Дата написания - {{ item.created_date }}</div>
         <div>
-          <a class="btn btn-secondary" style="color: aquamarine">
+          <a href="{{ url_for('book_detail', id=item.id) }}" class="btn btn-secondary" style="color: aquamarine">
             Открыть страницу
           </a>
         </div>
