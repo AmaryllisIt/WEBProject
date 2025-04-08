@@ -1,34 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-<style>
-  .book-item {
-    margin-bottom: 20px; /* Отступ между книгами */
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-
-  .book-item img {
-    display: block;
-    margin-bottom: 10px; /* Отступ между изображением и текстом */
-  }
-
-  .book-item h2 {
-    margin-bottom: 10px; /* Отступ между заголовком и текстом */
-  }
-
-  .book-item div {
-    margin-bottom: 5px; /* Отступ между строками текста */
-  }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
 <h1>Выберите интересующую Вас книгу</h1>
 <table>
   <tbody>
     <tr>
       {% for item in news %}
-      <td class='text-center book-item'>
+      <td class='book-item'>
         <img
           src="{{ url_for('static', filename=item.image_path) }}"
           width="380"
