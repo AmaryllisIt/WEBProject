@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<h1>{{ book.title }}</h1>
+<img src="" width="380" height="550" alt="{{ book.title }}">
+<div>{{ book.content }}</div>
+<div>Автор - {{ book.user.name }}</div>
+<div>Дата написания - {{ book.created_date }}</div>
+<div>
+    <a href="{{ url_for('static', filename=book.file_path) }}" class="btn btn-primary" download>
+        Скачать книгу
+    </a>
+</div>
+{% endblock %}
