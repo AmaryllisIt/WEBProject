@@ -160,7 +160,7 @@ def login():
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
 
-
+@login_required
 @app.route('/book/<int:id>')
 def book_detail(id):
     db_sess = db_session.create_session()
