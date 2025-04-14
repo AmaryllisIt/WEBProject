@@ -4,12 +4,12 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
 <h1>{{ book.title }}</h1>
-<img src="" width="380" height="550" alt="{{ book.title }}">
+<img src="{{ url_for('news_api.static', filename=book.image_path) }}" width="380" height="550" alt="{{ book.title }}">
 <div>{{ book.content }}</div>
 <div>Автор - {{ book.user.name }}</div>
 <div>Дата написания - {{ book.created_date }}</div>
 <div>
-    <a href="{{ url_for('static', filename=book.file_path) }}" class="btn btn-primary" download>
+    <a href="{{ url_for('news_api.static', filename=book.image_path) }}" class="btn btn-primary" download>
         Скачать книгу
     </a>
 </div>

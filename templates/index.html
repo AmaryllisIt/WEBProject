@@ -10,7 +10,7 @@
       {% for item in news %}
       <td class='book-item'>
         <img
-          href = "{{url_for('static', filename="{{image.path}}")}}"
+          src = "{{url_for('news_api.static', filename=item.image_path)}}"
           width="380"
           height="550"
           alt="{{ item.title }}"

@@ -6,7 +6,8 @@ from .news import News
 blueprint = flask.Blueprint(
     'news_api',
     __name__,
-    template_folder='templates'
+    template_folder='templates',
+    static_folder='static'
 )
 
 

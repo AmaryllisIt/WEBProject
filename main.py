@@ -43,7 +43,6 @@ def logout():
 
 
 @app.route('/')
-@app.route("/")
 def index():
     db_sess = db_session.create_session()
     if current_user.is_authenticated:
