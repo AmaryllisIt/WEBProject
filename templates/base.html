@@ -13,48 +13,30 @@
       crossorigin="anonymous"
     />
     <title>GoogolBook</title>
-    <style>
-      body {
-        background: rgb(55, 64, 57);
-        font-family: Calibri;
-      }
-
-      h1 {
-        color: white;
-        font-family:Calibri;
-        text-align: center;
-      }
-
-      h2 {
-        color: white;
-        font-family:Calibri;
-      }
-
-      td {
-        color: white;
-        font-family: Calibri;
-
-      }
-
-    </style>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-light bg-light">
-        <img src="../static/images/header_icon.png" />
-        <a
-          class="center navbar-brand align-left"
-          href="/"
-          style="font-size: 30px"
-          >GoogolBook</a
-        >
+        <div class="header">
+          <img src="../static/images/header_icon.png" href="/" />
+          <a
+            class="center navbar-brand align-left"
+            href="/"
+            style="font-size: 30px"
+            >GoogolBook</a
+          >
+        </div>
         {% if current_user.is_authenticated %}
-        <a class="navbar-brand" href="/logout">Выйти</a>
+        <div class="btn-block" style="padding-right: 20px">
+          <a class="btn btn-primary" href="/logout">Выйти</a>
+        </div>
         {% else %}
         <div class="btn-block" style="padding-right: 20px">
-          <a class="btn btn-primary" href="/register" style="font-size: 25px">Зарегистрироваться</a>
-          <a class="btn btn-success" href="/login" style="font-size: 25px">Войти</a>
+          <a class="btn btn-primary" href="/register">Зарегистрироваться</a>
+          <a class="btn btn-success" href="/login" style="font-size: 20px"
+            >Войти</a
+          >
         </div>
         {% endif %}
       </nav>

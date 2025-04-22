@@ -1,48 +1,108 @@
 body {
-    background-color: #333; /* Темный фон для всего сайта */
-    color: white; /* Белый цвет текста */
-    font-family: Arial, sans-serif; /* Шрифт */
+    background-color: #333;
+    /* Темный фон для всего сайта */
+    color: white;
+    /* Белый цвет текста */
+    font-family: Arial, sans-serif;
+    /* Шрифт */
 }
 
 .book-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px; /* Отступ между книгами */
+    margin-bottom: 20px;
+    /* Отступ между книгами */
     padding: 15px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    text-align: center; /* Выравнивание текста по центру */
-    background-color: #444; /* Темный фон для рамки */
+    text-align: center;
+    /* Выравнивание текста по центру */
+    background-color: #444;
+    /* Темный фон для рамки */
 }
 
 .book-item img {
-    margin-bottom: 10px; /* Отступ между изображением и текстом */
+    margin-bottom: 10px;
+    /* Отступ между изображением и текстом */
 }
 
 .book-item h2 {
-    margin-bottom: 10px; /* Отступ между заголовком и текстом */
-    font-size: 1.5em; /* Увеличенный размер шрифта для заголовка */
-    color: white; /* Белый цвет текста */
+    margin-bottom: 10px;
+    /* Отступ между заголовком и текстом */
+    font-size: 1.5em;
+    /* Увеличенный размер шрифта для заголовка */
+    color: white;
+    /* Белый цвет текста */
 }
 
 .book-item div {
-    margin-bottom: 5px; /* Отступ между строками текста */
-    font-size: 1.2em; /* Увеличенный размер шрифта для текста */
-    color: white; /* Белый цвет текста */
+    margin-bottom: 5px;
+    /* Отступ между строками текста */
+    font-size: 1.2em;
+    /* Увеличенный размер шрифта для текста */
+    color: white;
+    /* Белый цвет текста */
 }
 
 .book-item .btn {
-    margin-top: 10px; /* Отступ между текстом и кнопкой */
-    font-size: 1.2em; /* Увеличенный размер шрифта для кнопки */
-    color: white; /* Белый цвет текста */
-    background-color: #007bff; /* Цвет фона кнопки */
-    border: none; /* Убираем границу */
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    border-radius: 5px; /* Скругленные углы */
-    cursor: pointer; /* Курсор в виде руки */
+    margin-top: 10px;
+    /* Отступ между текстом и кнопкой */
+    font-size: 1.2em;
+    /* Увеличенный размер шрифта для кнопки */
+    color: white;
+    /* Белый цвет текста */
+    background-color: #007bff;
+    /* Цвет фона кнопки */
+    border: none;
+    /* Убираем границу */
+    padding: 10px 20px;
+    /* Отступы внутри кнопки */
+    border-radius: 5px;
+    /* Скругленные углы */
+    cursor: pointer;
+    /* Курсор в виде руки */
 }
 
 .book-item .btn:hover {
-    background-color: #0056b3; /* Цвет фона кнопки при наведении */
+    background-color: #0056b3;
+    /* Цвет фона кнопки при наведении */
+}
+
+.book-info {
+    padding-left: 75px;
+    padding-bottom: 200px;
+    text-align: left;
+    width: 600px;
+
+
+}
+
+.login {
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.body {
+    background: rgb(55, 64, 57);
+    font-family: Calibri;
+}
+
+.h1 {
+    color: white;
+    font-family: Calibri;
+    text-align: center;
+    align-items: center;
+}
+
+.h2 {
+    color: white;
+    font-family: Calibri;
+
+}
+
+.td {
+    color: white;
+    font-family: Calibri;
 }
