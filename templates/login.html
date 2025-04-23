@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-    
-    <h1>Авторизация</h1>
-    <form action="" method="post">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <h1 class='text-center'>Авторизация</h1>
+  
+    <form action="" method="post" class='login'>
         {{ form.hidden_tag() }}
         <p>
             {{ form.email.label }}<br>
@@ -25,8 +26,7 @@
         </p>
         <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
         <p>{{ form.submit(type="submit", class="btn btn-primary", background='cyan') }}</p>
-        <div>{{ message }}</div>
-        
+        <div style="color: red">{{ message }}</div>
     </form>
 
 {% endblock %}
