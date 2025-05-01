@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<table>
+    <tbody>
+        <tr class='item'>
+            <td>
+                <br />
+                <br />
+                <h1>Ваше имя - {{ user.name }}</h1>
+                <h1>Ваша электронная почта - {{ user.email }}</h1>
+                <h1>Ваша дата регистрации - {{ user.created_date.strftime("%d.%m.%Y") }}</h1>
+                <br />
+                <br />
+                <big><a class="btn btn-primary" href="/edit">Редактировать</a>
+                    <a class="btn btn-danger" href="/deleteaccount ">Удалить</a></big>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>
+{% endblock %}

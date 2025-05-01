@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<table>
+    <tbody>
+        <tr class='item'>
+            <td>
+                <br />
+                <br />
+                <form method="post">
+                <h1><label for="about">Введите новую электронную почту</label><br />
+                  <input class="form-control" id="email" name="email"></input></h1>
+                <br />
+                <h1><label for="about">Введите новое имя</label><br />
+                  <input class="form-control" id="name" name="name"></input></h1>
+                <br />
+                <br />
+                <big><button class="btn btn-primary" id="submit" name="submit" type="submit" value=True>Сохранить</button>
+                    <a class="btn btn-danger" href="/profile ">Отмена</a></big>
+                </form>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+</div>
+{% endblock %}
