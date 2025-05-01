@@ -1,21 +1,27 @@
-html
-
 {% extends "base.html" %}
 
-{% block title %}
-Главная
-{% endblock %}
-
 {% block content %}
-<h1>Книги</h1>
-<ul>
-    {% for book in books %}
-        <li>
-            <h2>{{ book.title }}</h2>
-            <p>{{ book.description }}</p>
-            <p><strong>Автор:</strong> {{ book.author }}</p>
-            <p><strong>Дата публикации:</strong> {{ book.publication_date }}</p>
-        </li>
-    {% endfor %}
-</ul>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<br />
+<h1>Публикация книги</h1>
+<br />
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        Введите название вашей книги<br>
+        {{ form.title(class="form-control", type="title") }}<br>
+    </p>
+    <p>
+        Опишите кратко, о чём ваша книга<br>
+        {{ form.content(class="form-control", type="content") }}<br>
+    </p>
+    <p>
+        А теперь расскажите поподробнее<br>
+        {{ form.con(class="form-control", type="password") }}<br>
+    </p>
+    <p>{{ form.submit(value="Опубликовать", type="submit", class="btn btn-primary", background='cyan') }}</p>
+    {{message}}
+</form>
 {% endblock %}

@@ -5,6 +5,7 @@ from flask_login import LoginManager, login_user, login_required, logout_user, c
 
 from data import db_session, news_api
 from data.news import News
+from forms.publishform import PublishForm
 from data.users import User
 from forms.login_form import LoginForm
 from forms.news_form import NewsForm
@@ -54,21 +55,21 @@ def index():
     return render_template("index.html", news=news)
 
 
-@app.route('/news', methods=['GET', 'POST'])
+@app.route('/publish', methods=['GET', 'POST'])
 @login_required
-def add_news():
-    form = NewsForm()
+def publish():
+    form = PublishForm()
     if form.validate_on_submit():
         db_sess = db_session.create_session()
         news = News()
         news.title = form.title.data
         news.content = form.content.data
-        news.is_private = form.is_private.data
-        current_user.news.append(news)
+        news.con = form.con.data
+        news.is_private = 0
         db_sess.merge(current_user)
         db_sess.commit()
         return redirect('/')
-    return render_template('news.html', title='Добавление новости',
+    return render_template('news.html', title='Добавление книги',
                            form=form)
 
 
@@ -121,6 +122,52 @@ def news_delete(id):
     return redirect('/')
 
 
+@app.route('/profile', methods=['GET', 'POST'])
+@login_required
+def myprofile():
+    db_sess = db_session.create_session()
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    if not user:
+        abort(404)
+    return render_template('profile.html', user=user)
+
+
+@app.route('/deleteaccount', methods=['GET', 'POST'])
+@login_required
+def deleteaccount():
+    db_sess = db_session.create_session()
+    user = db_sess.query(User).filter(User.id == current_user.id).first()
+    if user:
+        db_sess.delete(user)
+        db_sess.commit()
+    else:
+        abort(404)
+    logout_user()
+    return redirect("/")
+
+
+@app.route('/edit', methods=['GET', 'POST'])
+@login_required
+def edit():
+    if request.method == 'GET':
+        return render_template('edit.html')
+    elif request.method == 'POST':
+        if request.form['submit']:
+            db_sess = db_session.create_session()
+            user = db_sess.query(User).filter(User.id == current_user.id).first()
+            name = request.form['name']
+            email = request.form['email']
+            if user:
+                if name:
+                    user.name = name
+                if email:
+                    user.email = email
+                db_sess.commit()
+            else:
+                abort(404)
+        return redirect('/profile')
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def reqister():
     form = RegisterForm()
@@ -159,6 +206,7 @@ def login():
                                message="Неправильный логин или пароль",
                                form=form)
     return render_template('login.html', title='Авторизация', form=form)
+
 
 @login_required
 @app.route('/book/<int:id>')
