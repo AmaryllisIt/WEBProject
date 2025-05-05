@@ -17,7 +17,7 @@ from forms.user_form import RegisterForm
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'not_too_long_secret_key'
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(
-    days=60)  # два месяца для сессии
+    days=60)
 
 login_manager = LoginManager()
 login_manager.init_app(app)
